@@ -52,7 +52,12 @@ var Themeslist = React.createClass({
             <View style={styles.header}>
                 <View style={styles.userInfo}>
                     <TouchableElement>
-                        
+                        <View style={{flexDirection: 'row', alignItems: 'center',padding: 16}}>
+                        <Image source={} />
+
+                        </View>
+                    </TouchableElement>
+
                 </View>
             </View>
         );
