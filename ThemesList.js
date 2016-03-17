@@ -2,8 +2,23 @@
  * Created by allen on 16/3/12.
  */
 'use strict'
-var React = require('react-native');
-var {
+//ES5语法
+//var React = require('react-native');
+//var { AsyncStorage,
+//    Platform,
+//    ListView,
+//    Image,
+//    StyleSheet,
+//    Text,
+//    View,
+//    TouchableNativeFeedback,
+//    TouchableHighlight
+//    ,
+//    } = React
+/**
+ * ES6语法
+ */
+import  React ,{
     AsyncStorage,
     Platform,
     ListView,
@@ -12,12 +27,83 @@ var {
     Text,
     View,
     TouchableNativeFeedback,
-    TouchableHighlight,
-    } = React
+    TouchableHighlight
+} from  'react-native'
 var DateRepository = require('./DataRepository');
+/**
+ * ES5语法
+ */
+//var Themeslist = React.createClass({
+// getInitaState: function () {
+/*var dataSource = new ListView.DataSource({
+ rowHasChanged: (row1, row2) =>row1 !== row2,
+ });
+ return {
+ isLoading: false,
+ dataSource: dataSource,
+ };
+ },
+ componentDidMount: function () {
+ this.fetchThemes();
+ },
+ fetchThemes: function () {
+ repository.getThemes().then((themes) => {
+ this.setState({
+ isLoading: false,
+ dataSource: this.state.dataSource.cloneWithRows(themes),
+ });
+ })
+ .catch((error)=> {
+ this.setState({
+ isLoading: false,
+ dateSource: this.state.dateSource,
+ });
+ }).done();
+ },
+ renderHeader: function () {
+ var TouchableElement = TouchableHighlight;
+ if (Platform.OS === 'android') {
+ TouchableElement = TouchableNativeFeedback;
+ }
+ return (
+ <View style={styles.header}>
+ <View style={styles.userInfo}>
+ <TouchableElement>
+ <View style={{flexDirection: 'row', alignItems: 'center',padding: 16}}>
+ <Image source={require('image!comment_avatar')}
+ style={{width: 40,height:40,marginLeft: 8,marginRight: 8}}/>
+ <Text style={styles.menuText}>
+ 请登录
+ </Text>
+ </View>
+ </TouchableElement>
+ <View style={styles.row }>
+ <TouchableElement>
+ <View style={styles.row}>
+ <TouchableElement>
+ <View style={styles.menuContainer}>
+ <Image
+ source={require('image!comment_avatar')}></Image>
 
-var Themeslist = React.createClass({
-    getInitaState: function () {
+ </View>
+ </TouchableElement>
+
+ </View>
+ </TouchableElement>
+ </View>
+
+ </View>
+ </View>
+ );
+
+ }*/
+//
+//});
+/**
+ * ES6语法
+ */
+export  default class Themeslist extends React.Component {
+    getInitaState() {
         var dataSource = new ListView.DataSource({
             rowHasChanged: (row1, row2) =>row1 !== row2,
         });
@@ -25,25 +111,28 @@ var Themeslist = React.createClass({
             isLoading: false,
             dataSource: dataSource,
         };
-    },
-    componentDidMount: function () {
+    }
+
+    componentDidMount() {
         this.fetchThemes();
-    },
-    fetchThemes: function () {
+    }
+
+    fetchThemes() {
         repository.getThemes().then((themes) => {
-            this.setState({
-                isLoading: false,
-                dataSource: this.state.dataSource.cloneWithRows(themes),
-            });
-        })
+                this.setState({
+                    isLoading: false,
+                    dataSource: this.state.dataSource.cloneWithRows(themes),
+                });
+            })
             .catch((error)=> {
                 this.setState({
                     isLoading: false,
                     dateSource: this.state.dateSource,
                 });
             }).done();
-    },
-    renderHeader: function () {
+    }
+
+    renderHeader() {
         var TouchableElement = TouchableHighlight;
         if (Platform.OS === 'android') {
             TouchableElement = TouchableNativeFeedback;
@@ -53,18 +142,34 @@ var Themeslist = React.createClass({
                 <View style={styles.userInfo}>
                     <TouchableElement>
                         <View style={{flexDirection: 'row', alignItems: 'center',padding: 16}}>
-                        <Image source={} />
-
+                            <Image source={require('image!comment_avatar')}
+                                   style={{width: 40,height:40,marginLeft: 8,marginRight: 8}}/>
+                            <Text style={styles.menuText}>
+                                请登录
+                            </Text>
                         </View>
                     </TouchableElement>
+                    <View style={styles.row }>
+                        <TouchableElement>
+                            <View style={styles.row}>
+                                <TouchableElement>
+                                    <View style={styles.menuContainer}>
+                                        <Image
+                                            source={require('image!comment_avatar')}></Image>
+
+                                    </View>
+                                </TouchableElement>
+
+                            </View>
+                        </TouchableElement>
+                    </View>
 
                 </View>
             </View>
         );
+
     }
-
-});
-
+}
 var styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -124,4 +229,4 @@ var styles = StyleSheet.create({
         opacity: 0.0,
     },
 });
-module.exports = Themeslist;
+//module.exports = Themeslist;

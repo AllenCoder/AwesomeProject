@@ -12,7 +12,7 @@ import React, {
     View
 } from 'react-native';
 var TimerMixin = require('react-native-timer-mixin');
-var MainScreen = require('.MainScreen');
+var MainScreen = require('./MainScreen');
 var StoryScreen = require('./StoryScreen');
 var _navigator;
 /**
